@@ -6,11 +6,12 @@ using System.IO;
 using System.Linq;
 using TypeUtils;
 using Klak.Spout;
+using UnityEngine.Video;
 
 public class MultiProjectionManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject spoutReceiverPrefab;
+    GameObject spoutReceiverPrefab, imagePrefab, videoPrefab;
     [SerializeField]
     KeyCode saveKey;
     [SerializeField]
@@ -68,6 +69,37 @@ public class MultiProjectionManager : MonoBehaviour
                         go = GameObject.Instantiate(spoutReceiverPrefab) as GameObject;
                         var spoutReceiver = go.GetComponent<SpoutReceiver>();
                         spoutReceiver.sourceName = textureInfo.Name;
+                        break;
+
+                    case TextureType.Image:
+                        go = GameObject.Instantiate(imagePrefab) as GameObject;
+                        if (File.Exists(textureInfo.Name))
+                        {
+                            var renderer = go.GetComponent<Renderer>();
+                            var bytes = File.ReadAllBytes(textureInfo.Name);
+                            var texture = new Texture2D(1,1);
+                            texture.LoadImage(bytes);
+                            texture.Apply();
+                            renderer.material.mainTexture = texture;
+                        }
+
+                        break;
+
+                    case TextureType.Video:
+                        go = GameObject.Instantiate(videoPrefab) as GameObject;
+                        var videoPlayer = go.GetComponent<VideoPlayer>();
+                        var uri = new Uri(textureInfo.Name);
+                        if (uri.IsFile)
+                        {
+                            print(uri.AbsolutePath);
+                            print(uri.AbsoluteUri);
+                            videoPlayer.url = uri.AbsolutePath;
+                        }
+                        else
+                        {
+                            videoPlayer.url = textureInfo.Name;
+                        }
+
                         break;
 
                 }
