@@ -11,6 +11,7 @@ Plugins/
 Newtonsoft/
 Build/
 .vs/
+.vscode/
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -24,6 +25,8 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
+
+JsonDotNet/
 
 # ============ #
 # OS generated #
