@@ -1,0 +1,16 @@
+{
+    "ProjectionTextureInfoList": [
+        {
+            "Id": "c",
+            "TextureType": "Spout",
+            "Name": "Test",
+            "AltTextureName": "alt.jpg"
+        },
+        {
+            "Id": "b",
+            "TextureType": "Video",
+            "Name": "test.mp4",
+            "AltTextureName": "alt.jpg"
+        }
+    ]
+}

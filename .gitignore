@@ -5,7 +5,6 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
-StreamingAssets/
 Ignore/
 Plugins/
 Newtonsoft/
@@ -25,8 +24,8 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
-.mp4
-
+*.mp4
+projectionSettings.json
 # ============ #
 # OS generated #
 # ============ #
