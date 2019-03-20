@@ -2,8 +2,8 @@
     "ProjectionTextureInfoList": [
         {
             "Id": "c",
-            "TextureType": "Spout",
-            "Name": "Test",
+            "TextureType": "Image",
+            "Name": "test.jpg",
             "AltTextureName": "alt.jpg"
         },
         {
