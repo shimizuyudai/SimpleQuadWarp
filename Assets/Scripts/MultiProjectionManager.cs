@@ -115,7 +115,6 @@ public class MultiProjectionManager : MonoBehaviour
                 if (projectionSetting != null)
                 {
                     plane.Restore(projectionSetting.CornerPointInfomations);
-                    //print("restore");
                 }
                 planes.Add(plane);
             }
