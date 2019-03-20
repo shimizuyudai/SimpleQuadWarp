@@ -45,6 +45,35 @@ public class MultiProjectionManager : MonoBehaviour
         return settings ?? new List<MultiProjectionSettings>();
     }
 
+    byte[] GetImage(string path)
+    {
+        if (File.Exists(path))
+        {
+            return File.ReadAllBytes(path);
+        }
+        var p = IOHandler.IntoStreamingAssets(Path.Combine("Images", path));
+        if (File.Exists(p))
+        {
+            return File.ReadAllBytes(p);
+        }
+        return null;
+    }
+
+    string GetVideoPath(string path)
+    {
+        if (File.Exists(path))
+        {
+            return path;
+        }
+        var p = IOHandler.IntoStreamingAssets(Path.Combine("Videos", path));
+        if (File.Exists(p))
+        {
+            return p;
+        }
+
+        return path;
+    }
+
     void Init()
     {
 
@@ -72,10 +101,10 @@ public class MultiProjectionManager : MonoBehaviour
 
                     case TextureType.Image:
                         go = GameObject.Instantiate(imagePrefab) as GameObject;
-                        if (File.Exists(textureInfo.Name))
+                        var bytes = GetImage(textureInfo.Name);
+                        if (bytes != null)
                         {
                             var renderer = go.GetComponent<Renderer>();
-                            var bytes = File.ReadAllBytes(textureInfo.Name);
                             var texture = new Texture2D(1, 1);
                             texture.LoadImage(bytes);
                             texture.Apply();
@@ -87,21 +116,13 @@ public class MultiProjectionManager : MonoBehaviour
                     case TextureType.Video:
                         go = GameObject.Instantiate(videoPrefab) as GameObject;
                         var videoPlayer = go.GetComponent<VideoPlayer>();
-                        var uri = new Uri(textureInfo.Name);
-                        if (uri.IsFile)
-                        {
-                            print(uri.AbsolutePath);
-                            print(uri.AbsoluteUri);
-                            videoPlayer.url = uri.AbsolutePath;
-                        }
-                        else
-                        {
-                            videoPlayer.url = textureInfo.Name;
-                        }
+                        var path = GetVideoPath(textureInfo.Name);
+                        videoPlayer.url = path;
 
                         break;
 
                 }
+
                 var projectionPlane = go.GetComponent<ProjectionPlane>();
                 projectionPlane.projectionTextureInfo = textureInfo;
                 go.transform.position = Vector3.zero;

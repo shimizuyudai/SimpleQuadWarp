@@ -25,8 +25,7 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
-
-JsonDotNet/
+.mp4
 
 # ============ #
 # OS generated #
