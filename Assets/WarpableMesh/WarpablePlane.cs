@@ -35,7 +35,7 @@ public class WarpablePlane : MonoBehaviour
         private set {
             if (isEnable != value)
             {
-                if (this.OnChangeMode != null) OnChangeMode(value);
+                OnChangeMode?.Invoke(value);
             }
             this.isEnable = value;
         }
@@ -67,6 +67,10 @@ public class WarpablePlane : MonoBehaviour
     {
         get {
             return touchDistanceThreshold;
+        }
+        set
+        {
+            touchDistanceThreshold = value;
         }
     }
 
@@ -174,23 +178,7 @@ public class WarpablePlane : MonoBehaviour
     {
         if (isSelectable)
         {
-            //var mesh = new Mesh();
-            //var vertices = new List<Vector3>();
-            //for (var i = 0; i < CornerPoints.Length; i++)
-            //{
-            //    vertices.Add(CornerPoints[i].position);
-            //}
-            //var triangles = new List<int>();
-            //triangles.Add(0);
-            //triangles.Add(3);
-            //triangles.Add(1);
-            //triangles.Add(1);
-            //triangles.Add(3);
-            //triangles.Add(2);
-            //mesh.vertices = vertices.ToArray();
-            //mesh.triangles = triangles.ToArray();
             meshCollider.sharedMesh = meshFilter.mesh;
-            //meshCollider.convex = true;
         }
     }
 

@@ -35,25 +35,24 @@ public class MultiProjectionManager : MonoBehaviour
 
     ProjectionTextureSettings LoadProjectionTextureSettings()
     {
-        var settings = StreamingAssetsHandler.LoadJson(textureSettingsFileName, typeof(ProjectionTextureSettings)) as ProjectionTextureSettings;
+        var settings = IOHandler.LoadJson<ProjectionTextureSettings>(IOHandler.IntoStreamingAssets(textureSettingsFileName));
         return settings ?? new ProjectionTextureSettings();
     }
 
     private List<MultiProjectionSettings> LoadProjectionSettings()
     {
-        var settings = StreamingAssetsHandler.LoadJson(projectionSettingsFileName, typeof(List<MultiProjectionSettings>)) as List<MultiProjectionSettings>;
+        var settings = IOHandler.LoadJson<List<MultiProjectionSettings>>(IOHandler.IntoStreamingAssets(projectionSettingsFileName));
         return settings ?? new List<MultiProjectionSettings>();
     }
 
     void Init()
     {
-        
+
         var textureSettings = LoadProjectionTextureSettings();
         var multiProjectionSettings = LoadProjectionSettings();
-
         if (textureSettings.ProjectionTextureInfoList != null)
         {
-            var size = Vector2.one*3f;
+            var size = Vector2.one * 3f;
             var position = Vector3.zero;
 
             planes = new List<WarpablePlane>();
@@ -77,7 +76,7 @@ public class MultiProjectionManager : MonoBehaviour
                         {
                             var renderer = go.GetComponent<Renderer>();
                             var bytes = File.ReadAllBytes(textureInfo.Name);
-                            var texture = new Texture2D(1,1);
+                            var texture = new Texture2D(1, 1);
                             texture.LoadImage(bytes);
                             texture.Apply();
                             renderer.material.mainTexture = texture;
@@ -116,7 +115,7 @@ public class MultiProjectionManager : MonoBehaviour
                 if (projectionSetting != null)
                 {
                     plane.Restore(projectionSetting.CornerPointInfomations);
-                    print("restore");
+                    //print("restore");
                 }
                 planes.Add(plane);
             }
@@ -151,7 +150,7 @@ public class MultiProjectionManager : MonoBehaviour
         }
     }
 
-    
+
 
     private void Save()
     {
@@ -167,7 +166,7 @@ public class MultiProjectionManager : MonoBehaviour
             };
             settingsList.Add(settings);
         }
-        StreamingAssetsHandler.SaveJson(projectionSettingsFileName, settingsList);
+        IOHandler.SaveJson(IOHandler.IntoStreamingAssets(projectionSettingsFileName), settingsList);
     }
 }
 

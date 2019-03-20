@@ -1,0 +1,78 @@
+[
+  {
+    "Id": "c",
+    "Name": "Result",
+    "CornerPointInfomations": [
+      {
+        "index": 0,
+        "number": 0,
+        "position": {
+          "x": 5.977463,
+          "y": -4.24443
+        }
+      },
+      {
+        "index": 0,
+        "number": 1,
+        "position": {
+          "x": 6.40102959,
+          "y": -2.6358726
+        }
+      },
+      {
+        "index": 0,
+        "number": 2,
+        "position": {
+          "x": 5.34516335,
+          "y": 3.757983
+        }
+      },
+      {
+        "index": 0,
+        "number": 3,
+        "position": {
+          "x": -0.218033746,
+          "y": 0.182753146
+        }
+      }
+    ]
+  },
+  {
+    "Id": "b",
+    "Name": "C:\\Users\\shimizuyudai\\Documents\\Tools\\Images\\1.png",
+    "CornerPointInfomations": [
+      {
+        "index": 0,
+        "number": 0,
+        "position": {
+          "x": -6.9069066,
+          "y": -3.92607141
+        }
+      },
+      {
+        "index": 0,
+        "number": 1,
+        "position": {
+          "x": 0.219374925,
+          "y": -3.4267354
+        }
+      },
+      {
+        "index": 0,
+        "number": 2,
+        "position": {
+          "x": -4.8342886,
+          "y": 1.9894402
+        }
+      },
+      {
+        "index": 0,
+        "number": 3,
+        "position": {
+          "x": -7.267694,
+          "y": -2.4002943
+        }
+      }
+    ]
+  }
+]

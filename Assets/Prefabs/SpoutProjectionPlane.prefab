@@ -4776,7 +4776,7 @@ ParticleSystem:
 --- !u!199 &199765486980060306
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4849,8 +4849,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   warpPlane: {fileID: 114316092667450846}
   ps: {fileID: 198476682785995008}
-  color: {r: 0, g: 1, b: 0, a: 0.5019608}
-  centerColor: {r: 1, g: 0, b: 0, a: 1}
-  adjustPosition: {x: 0, y: 0, z: -1}
-  isUseAltTexture: 0
-  altTexture: {fileID: 0}
+  warpablePlaneControlViewSetting: {fileID: 11400000, guid: 02484aba95c0cef4a9360dcd404bb1fc,
+    type: 2}

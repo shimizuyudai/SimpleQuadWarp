@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class WarpablePlaneController : MonoBehaviour {
+public class WarpablePlaneController : MonoBehaviour
+{
     [SerializeField]
     RaySelector selector;
 
-    public List<WarpablePlane> WarpablePlanes;
+    public List<WarpablePlane> WarpablePlanes { get; set; }
     Vector3 preMousePosition;
     [SerializeField]
-    KeyCode resetKey;
+    KeyCode resetKey, releaseKey;
     // Use this for initialization
     void Start()
     {
@@ -18,10 +19,12 @@ public class WarpablePlaneController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         var isControl = false;
         var worldMousePos = selector.Camera.ScreenToWorldPoint(Input.mousePosition);
         //worldMousePos.z = 0f;
+        if (WarpablePlanes == null) return;
 
         var selectedPlane = WarpablePlanes.FirstOrDefault(e => e.IsEnable);
 
@@ -49,6 +52,11 @@ public class WarpablePlaneController : MonoBehaviour {
             }
         }
 
+        if (Input.GetKeyDown(releaseKey))
+        {
+            selector.Release();
+        }
+
         if (selectedPlane != null)
         {
             if (selectedPlane.IsWarp)
@@ -58,12 +66,12 @@ public class WarpablePlaneController : MonoBehaviour {
         }
 
 
-        if(Input.GetKeyDown(resetKey))
+        if (Input.GetKeyDown(resetKey))
         {
             foreach (var warpPlane in WarpablePlanes)
             {
-                if(warpPlane.IsEnable)
-                warpPlane.Clear();
+                if (warpPlane.IsEnable)
+                    warpPlane.Clear();
             }
         }
 
