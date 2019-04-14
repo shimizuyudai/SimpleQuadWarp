@@ -11,7 +11,7 @@ public class WarpablePlaneController : MonoBehaviour
     public List<WarpablePlane> WarpablePlanes { get; set; }
     Vector3 preMousePosition;
     [SerializeField]
-    KeyCode resetKey, releaseKey;
+    KeyCode clearKey, releaseKey;
     // Use this for initialization
     void Start()
     {
@@ -66,7 +66,7 @@ public class WarpablePlaneController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(resetKey))
+        if (Input.GetKeyDown(clearKey))
         {
             foreach (var warpPlane in WarpablePlanes)
             {

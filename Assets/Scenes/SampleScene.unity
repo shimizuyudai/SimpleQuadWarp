@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selector: {fileID: 282840812}
-  resetKey: 99
+  clearKey: 99
   releaseKey: 114
 --- !u!1 &1397675545
 GameObject:
