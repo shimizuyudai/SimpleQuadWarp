@@ -6,6 +6,14 @@ This tool can be used to deform multiple planes.
 * Image
 * Spout
 
+# KeyAssign
+| Key | Action |
+|:-|:-|
+| Return       | Save Settings        |
+| C      | Clear coordinate editing        |
+| R       | Release the editing quad        |
+
+
 # Dependency
 
 * OpenCVForUnity
