@@ -4,13 +4,13 @@
             "Id": "c",
             "TextureType": "Image",
             "Name": "test.jpg",
-            "AltTextureName": "alt.jpg"
+            "AltTextureName": "testpattern.png"
         },
         {
             "Id": "b",
             "TextureType": "Video",
             "Name": "test.mp4",
-            "AltTextureName": "alt.jpg"
+            "AltTextureName": "testpattern.png"
         }
     ]
 }

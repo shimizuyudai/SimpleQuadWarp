@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 114316092667450846}
   - component: {fileID: 3959633321710122248}
   - component: {fileID: 6521207963791534664}
+  - component: {fileID: 1002236600}
   m_Layer: 0
   m_Name: SpoutProjectionPlane
   m_TagString: Untagged
@@ -136,6 +137,20 @@ MonoBehaviour:
   _targetTexture: {fileID: 0}
   _targetRenderer: {fileID: 23769899578749874}
   _targetMaterialProperty: _MainTex
+--- !u!114 &1002236600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137813255798134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b1811e3cccb4a479c213bca1bf891c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureControlBehaviour: {fileID: 6521207963791534664}
+  renderer: {fileID: 23769899578749874}
 --- !u!1 &1585747087377942
 GameObject:
   m_ObjectHideFlags: 0

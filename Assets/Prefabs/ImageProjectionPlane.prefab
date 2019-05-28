@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1571725359580354006}
   - component: {fileID: 1453618082529974588}
   - component: {fileID: 2542591597914208746}
+  - component: {fileID: 4266841}
+  - component: {fileID: 578340252257526217}
   m_Layer: 0
   m_Name: ImageProjectionPlane
   m_TagString: Untagged
@@ -119,6 +121,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2fa833ede481b429a7ef6359e47b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4266841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566798320451187092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b1811e3cccb4a479c213bca1bf891c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureControlBehaviour: {fileID: 578340252257526217}
+  renderer: {fileID: 1580229697709129552}
+--- !u!114 &578340252257526217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566798320451187092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8f0c9792b245e4a80ee680b5f3c2fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 1580229697709129552}
 --- !u!1 &1567193477691575028
 GameObject:
   m_ObjectHideFlags: 0

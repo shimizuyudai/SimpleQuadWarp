@@ -4729,6 +4729,8 @@ GameObject:
   - component: {fileID: 8822332623883253463}
   - component: {fileID: 8822332623883253456}
   - component: {fileID: 8822332623883253419}
+  - component: {fileID: 545014214}
+  - component: {fileID: 545014215}
   m_Layer: 0
   m_Name: VideoProjectionPlane
   m_TagString: Untagged
@@ -4869,3 +4871,30 @@ VideoPlayer:
   m_Looping: 1
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
+--- !u!114 &545014214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822332623883253457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b1811e3cccb4a479c213bca1bf891c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureControlBehaviour: {fileID: 545014215}
+  renderer: {fileID: 8822332623883253461}
+--- !u!114 &545014215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822332623883253457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a357549f5b98d4c4c930c26be201f44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 8822332623883253419}

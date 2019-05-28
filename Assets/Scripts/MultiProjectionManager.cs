@@ -26,6 +26,8 @@ public class MultiProjectionManager : MonoBehaviour
     [SerializeField]
     string textureSettingsFileName, projectionSettingsFileName;
 
+    AltTextureManager altTextureManager;
+
     public enum TextureType
     {
         Spout,
@@ -76,9 +78,10 @@ public class MultiProjectionManager : MonoBehaviour
 
     void Init()
     {
-
+        altTextureManager = new AltTextureManager();
         var textureSettings = LoadProjectionTextureSettings();
         var multiProjectionSettings = LoadProjectionSettings();
+
         if (textureSettings.ProjectionTextureInfoList != null)
         {
             var size = Vector2.one * 3f;
@@ -101,6 +104,7 @@ public class MultiProjectionManager : MonoBehaviour
 
                     case TextureType.Image:
                         go = GameObject.Instantiate(imagePrefab) as GameObject;
+                        var texture2Renderer = go.GetComponent<Texture2Renderer>();
                         var bytes = GetImage(textureInfo.Name);
                         if (bytes != null)
                         {
@@ -108,7 +112,7 @@ public class MultiProjectionManager : MonoBehaviour
                             var texture = new Texture2D(1, 1);
                             texture.LoadImage(bytes);
                             texture.Apply();
-                            renderer.material.mainTexture = texture;
+                            texture2Renderer.Texture = texture;
                         }
 
                         break;
@@ -118,10 +122,12 @@ public class MultiProjectionManager : MonoBehaviour
                         var videoPlayer = go.GetComponent<VideoPlayer>();
                         var path = GetVideoPath(textureInfo.Name);
                         videoPlayer.url = path;
-
                         break;
-
                 }
+
+                //AltTexture
+                var altTextureController = go.GetComponent<AltTextureController>();
+                altTextureController.AltTexture = altTextureManager.GetTexture(textureInfo.AltTextureName);
 
                 var projectionPlane = go.GetComponent<ProjectionPlane>();
                 projectionPlane.projectionTextureInfo = textureInfo;
@@ -153,6 +159,9 @@ public class MultiProjectionManager : MonoBehaviour
         var pos = obj.gameObject.transform.localPosition;
         pos.z = 0f;
         obj.gameObject.transform.localPosition = pos;
+        var altTextureController = obj.gameObject.GetComponent<AltTextureController>();
+        if (altTextureController == null) return;
+        altTextureController.OnReleased();
     }
 
     private void Selectable_SelectedEvent(RaySelectableObject obj)
@@ -160,6 +169,9 @@ public class MultiProjectionManager : MonoBehaviour
         var pos = obj.gameObject.transform.localPosition;
         pos.z = -1;
         obj.gameObject.transform.localPosition = pos;
+        var altTextureController = obj.gameObject.GetComponent<AltTextureController>();
+        if (altTextureController == null) return;
+        altTextureController.OnSelected();
     }
 
     private void Update()
